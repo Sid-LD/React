@@ -1,0 +1,156 @@
+hooks-special type of function which provides powerful features to react
+
+
+CODES
+import React from 'react'
+const App=()=>{
+  const user='Siddhant'
+  const abc=()=>{
+    console.log("Hitesh");
+  }
+  return (
+    <div>
+    <h1>Username is {user}</h1>      
+    <button onClick={abc}>Change User</button>          1) onClick
+    </div>
+  )
+}
+export default App
+//adds hitesh in console
+
+
+import React,{useState} from 'react'
+const App = () => {
+  const [a, setA] = useState(10)  //Used state Hook
+  const changeA=()=>{
+    console.log("chal gaya");
+    setA(45)
+    
+  }
+  return (
+    <div>
+      <h1>Value of a is {a}</h1>
+      <button onClick={changeA}>Change A</button>
+    </div>
+  )
+}
+
+export default App
+//changes value of 10 to 45 in front end
+
+
+import React,{useState} from 'react'
+
+const App = () => {
+  const [n, setN] = useState(25)
+  const inc=()=>{
+    console.log("Chal gaya");
+    setN(n+10)
+    
+  }
+  return (
+    <div>
+      <h2>Number is {n}</h2>
+      <button onClick={inc}>Increament by 10</button>
+      <button onClick={()=>setN(n-10)}> Decrement</button>
+    </div>
+  )
+}
+
+export default App
+
+
+//how to use tailwind in css using react
+import React from 'react'
+
+const App = () => {
+  return (
+    <div>
+      <h2 className='text-6xl bg-green-600 text-black'>Hello Guys</h2>
+      <h2>Good morning</h2>
+    </div>
+  )
+}
+
+export default App
+
+
+
+
+
+#Event Handler
+ What does e.preventDefault() do?
+It prevents the default behavior of the event. For example:
+
+If the handler is used in a <form>:
+
+It stops the form from submitting and reloading the page.
+
+
+
+
+
+
+
+
+
+
+
+
+//Event Handler
+import React from 'react'
+
+const App = () => {
+  const submitHandler=(e)=>{
+    e.preventDefault()
+    console.log("beta");
+    
+    
+  }
+  return (
+    <div>
+      <form onSubmit={(e)=>{                      2) onSubmit
+        submitHandler(e)
+      }}>
+        <input className='px-8 py-4 text-2xl m-5 rounded' type="text" placeholder='Enter your name'/>
+        <button className=' block px-3 py-3 text-2xl bg-red-600 rounded m-5'>Submit</button>
+      </form>
+    </div>
+  )
+}
+
+export default App
+
+
+//How to write your name in placeholder using react using two way data binding
+import React,{useState} from 'react'
+
+const App = () => {
+  const [username, setUsername] = useState('')
+  const submitHandler=(e)=>{
+    e.preventDefault()
+    console.log(username);
+    setUsername('')
+    
+  }
+
+  return (
+    <div>
+      <form onSubmit={(e)=>{
+        submitHandler(e)
+      }}>
+        <input 
+        value={username}                                3) onChange
+        onChange={(e)=>{
+          setUsername(e.target.value)  //input updates the state and state updates the input
+        }}
+        className='px-8 py-4 text-2xl m-5 rounded'
+         type="text"
+          placeholder='Enter your name'/>
+        <button className=' block px-3 py-3 text-2xl bg-red-600 rounded m-5'>Submit</button>
+      </form>
+    </div>
+  )
+}
+
+export default App
