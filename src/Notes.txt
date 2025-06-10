@@ -154,3 +154,9 @@ const App = () => {
 }
 
 export default App
+
+
+
+Axios are tools which helps to call API
+routing-moving from one page to another
+Context API is used to centralize the data
